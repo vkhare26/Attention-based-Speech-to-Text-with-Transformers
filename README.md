@@ -22,7 +22,7 @@ The implementation achieves a CER of ≤60% on the Kaggle leaderboard, meeting t
 # Repository Structure
 
 config.yaml: Configuration file specifying dataset paths, model hyperparameters, training settings, and SpecAugment parameters.
-hw4p2.py: Main script containing the Transformer implementation, dataset handling, training, validation, and testing logic.
+Attention-based-Speech-to-Text-with-Transformers.py: Main script containing the Transformer implementation, dataset handling, training, validation, and testing logic.
 submission.csv: Generated file for Kaggle submission with test predictions.
 README.md: This file, providing project documentation.
 
@@ -105,11 +105,11 @@ Warm-up the encoder while freezing embeddings and decoder (mode="full", 4 epochs
 Train the full Transformer with all layers unfrozen (mode="full", remaining epochs).
 
 To train the model, run:
-python hw4p2.py
+python Attention-based-Speech-to-Text-with-Transformers.py
 
 
 The script automatically logs training metrics (loss, perplexity, CER, WER, Levenshtein Distance) to W&B if use_wandb: true in config.yaml.
-Checkpoints are saved in the checkpoints/ directory under the experiment root (run_name in hw4p2.py).
+Checkpoints are saved in the checkpoints/ directory under the experiment root (run_name in Attention-based-Speech-to-Text-with-Transformers.py).
 Attention weight plots are saved in the attention_imgs/ directory.
 Validation outputs are saved as JSON files in the out_text/ directory.
 
@@ -118,7 +118,7 @@ After training, the script loads the best model (based on Levenshtein Distance) 
 To generate test predictions manually (after training):
 
 Ensure the best model checkpoint is available at /home/name/{run_name}/checkpoints/checkpoint-best-loss-modelfull.pth.
-Run the test step (already included at the end of hw4p2.py):python hw4p2.py
+Run the test step (already included at the end of Attention-based-Speech-to-Text-with-Transformers.py):python Attention-based-Speech-to-Text-with-Transformers.py
 
 
 The submission.csv file will be created in the working directory with the format:Index,Labels
